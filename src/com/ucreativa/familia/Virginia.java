@@ -4,7 +4,7 @@ public class Virginia {
     private int age;
     private  String hobby;
 
-    public Virginia(String saludo){
+    public Virginia(String saludo, int age, String hobby){
         this.age = 60;
         this.hobby = "leer";
         System.out.println(saludo);

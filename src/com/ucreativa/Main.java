@@ -1,20 +1,30 @@
 package com.ucreativa;
 
-import com.ucreativa.familia.Mariano;
-import com.ucreativa.familia.Virginia;
+import com.ucreativa.Vacunacion.Familiar;
+import com.ucreativa.Vacunacion.Amigo;
+import com.ucreativa.Vacunacion.BitacoraVacunas;
+import com.ucreativa.Vacunacion.Persona;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
-    Mariano yo = new Mariano("Hello",39,"drink coffe");
 
-    Virginia mom = new Virginia("Buenos Dias",60,"reading");
-    mom.setAge();
+        Familiar mama = new Familiar("Virginia","123", 60, true,"Mama" );
+        Familiar hermana = new Familiar("Idalma", "123",40, false, "Hermana");
+        Amigo roomate = new Amigo("Cali","123", 30, false, "roomate", "no se");
 
-    int Age = mom.getAge();
-    System.out.println("My Age is " + Age);
-    System.out.println("Hola Clase");
-    System.out.println("me gusta " + mom.getHobby());
+        List<Persona> familia = new ArrayList<>();
+                familia.add(mama);
+                familia.add(hermana);
+
+        List<BitacoraVacunas> bitacora = new ArrayList<>();
+        bitacora.add(new BitacoraVacunas(mama,"Pfizer", new Date()));
+        bitacora.add(new BitacoraVacunas(hermana,"AstraZeneca", new Date()));
+        bitacora.add(new BitacoraVacunas(roomate, "Jhonson", new Date()));
+
     }
 }

@@ -1,4 +1,4 @@
-package com.ucreativa.Vacunacion;
+package com.ucreativa.Vacunacion.entities;
 
 public class Amigo extends Persona{
 

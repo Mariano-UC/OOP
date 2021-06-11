@@ -4,7 +4,9 @@ import com.ucreativa.Vacunacion.entities.Amigo;
 import com.ucreativa.Vacunacion.entities.BitacoraVacunas;
 import com.ucreativa.Vacunacion.entities.Familiar;
 import com.ucreativa.Vacunacion.entities.Persona;
+import com.ucreativa.Vacunacion.repositories.FileRepository;
 import com.ucreativa.Vacunacion.repositories.InMemoryRepository;
+import com.ucreativa.Vacunacion.repositories.Repository;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -14,7 +16,7 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        InMemoryRepository repo = new InMemoryRepository();
+        Repository repo = new FileRepository();
 
         while (true) {
             System.out.println("Ingrese algun dato");

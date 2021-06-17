@@ -16,12 +16,10 @@ public class BitacoraService {
         this.repository = repository;
     }
     public void save(String nombre, String cedula, String txtEdad,
-                     String txtRiesgo, String txtisAmigo, String relacion,
+                     boolean riesgo, boolean isAmigo, String relacion,
                      String facebook,String parentesco, String marca){
 
         int edad = Integer.parseInt(txtEdad);
-        boolean isAmigo = txtisAmigo.equals("A");
-        boolean riesgo = txtRiesgo.equals("S");
         Persona persona;
         if (isAmigo){
             persona = new Amigo(nombre, cedula, edad, riesgo, relacion, facebook);

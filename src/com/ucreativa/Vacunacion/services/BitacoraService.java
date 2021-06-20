@@ -4,6 +4,7 @@ import com.ucreativa.Vacunacion.entities.Amigo;
 import com.ucreativa.Vacunacion.entities.Familiar;
 import com.ucreativa.Vacunacion.entities.Persona;
 import com.ucreativa.Vacunacion.repositories.Repository;
+import com.ucreativa.Vacunacion.ui.ErrorEnEdadException;
 
 import java.util.Date;
 import java.util.List;
@@ -17,14 +18,24 @@ public class BitacoraService {
     }
     public void save(String nombre, String cedula, String txtEdad,
                      boolean riesgo, boolean isAmigo, String relacion,
-                     String facebook,String parentesco, String marca){
+                     String facebook,String parentesco, String marca) throws ErrorEnEdadException {
 
-        int edad = Integer.parseInt(txtEdad);
+        int edad;
+        try {
+            edad = Integer.parseInt(txtEdad);
+        } catch (NumberFormatException x ){
+            throw new ErrorEnEdadException(txtEdad);
+        }
         Persona persona;
         if (isAmigo){
             persona = new Amigo(nombre, cedula, edad, riesgo, relacion, facebook);
         } else {
-            persona = new Familiar(nombre,cedula, edad, riesgo, parentesco);
+            if (relacion.equals("Hermano")) {
+                persona = new Familiar(nombre, cedula, edad, riesgo, parentesco);
+            } else {
+                persona = new Familiar(nombre, cedula, edad, riesgo, parentesco);
+            }
+
         }
         this.repository.save(persona, marca, new Date());
     }

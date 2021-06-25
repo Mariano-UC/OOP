@@ -23,7 +23,7 @@ public class InMemoryRepository implements Repository {
         List<String> lines = new ArrayList<>();
         SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss" );
         for(BitacoraVacunas item : db){
-            lines.add(item.getPersona().getName()
+            lines.add(item.getPersona().getNombre()
                     +" - " + item.getMarca()
                     +" - " + format.format(item.getFecha()));
         }

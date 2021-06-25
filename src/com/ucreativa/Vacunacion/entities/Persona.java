@@ -1,42 +1,42 @@
 package com.ucreativa.Vacunacion.entities;
 
-public class Persona {
+import com.ucreativa.Vacunacion.services.ContadorRiesgo;
 
-    public String getName() {
-        return name;
+public abstract class Persona {
+
+    private String nombre;
+    private String cedula;
+    private int edad;
+    private boolean riesgo;
+
+    public Persona(String nombre, String cedula, int edad, boolean riesgo) {
+        this.nombre = nombre;
+        this.cedula = cedula;
+        this.edad = edad;
+        this.riesgo = riesgo;
+        if(riesgo){
+            ContadorRiesgo.getInstance().SumarRiesgo();
+        }
     }
 
-    public String getCedula() {
-        return cedula;
+    public abstract String toString();
+    // <editor-fold desc="Metodos">
+    public int getEdad() {
+        return edad;
     }
-
-    public int getAge() {
-        return age;
+    public void addYear() {
+        this.edad = this.edad++;
     }
-
     public boolean isRiesgo() {
         return riesgo;
     }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
     public void setRiesgo(boolean riesgo) {
         this.riesgo = riesgo;
     }
-
-    private String name;
-    private String cedula;
-    private int age;
-    private boolean riesgo;
-
-    public Persona(String name, String cedula, int age, boolean riesgo) {
-        this.name = name;
-        this.cedula = cedula;
-        this.age = age;
-        this.riesgo = riesgo;
+    public String getNombre() {
+        return nombre;
     }
-
-
+    public String getCedula() {
+        return cedula;
+    }
 }

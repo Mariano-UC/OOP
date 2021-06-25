@@ -2,20 +2,33 @@ package com.ucreativa.Vacunacion.entities;
 
 public class Amigo extends Persona{
 
+    private String relacion;
+    private String facebook;
+
+    public Amigo(String nombre, String cedula, int edad, boolean riesgo, String relacion, String facebook) {
+        super(nombre, cedula, edad, riesgo);
+        this.relacion = relacion;
+        this.facebook = facebook;
+    }
+
     public String getRelacion() {
         return relacion;
+    }
+
+    public void setRelacion(String relacion) {
+        this.relacion = relacion;
     }
 
     public String getFacebook() {
         return facebook;
     }
 
-    private String relacion;
-    private String facebook;
+    public void setFacebook(String facebook) {
+        this.facebook = facebook;
+    }
 
-    public Amigo(String name, String cedula, int age, boolean riesgo, String relacion, String amigo) {
-        super(name, cedula, age, riesgo);
-        this.relacion = relacion;
-        this.facebook = amigo;
+    @Override
+    public String toString() {
+        return super.getNombre();
     }
 }
